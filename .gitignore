@@ -1,0 +1,52 @@
+# Arquivos e pastas do Visual Studio
+.vs/
+*.slnx
+*.vsidx
+
+# Build e binários
+bin/
+obj/
+Debug/
+Release/
+
+# Arquivos de usuário do Visual Studio
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.userprefs
+
+# Logs
+*.log
+
+# Testes e resultados temporários
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+packages/
+# Se usar restore automático, ignore também:
+*.nuget/
+
+# Configurações locais
+appsettings.Development.json
+
+# Cache do Rider/Resharper
+.idea/
+*.DotSettings.user
+
+# Arquivos de backup
+*.bak
+*.swp
+*.tmp
+
+# Arquivos gerados por ferramentas
+project.lock.json
+project.fragment.lock.json
+
+# Arquivos de publicação
+publish/
