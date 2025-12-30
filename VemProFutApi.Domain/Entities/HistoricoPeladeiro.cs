@@ -11,7 +11,7 @@ namespace VemProFutApi.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Column("gols_total_historico_fut")]
+        [Column("gols_historico_peladeiro")]
         public int GolsDoPeladeiro = 0;
 
         [Column("nota_historico_peladeiro")]
@@ -22,5 +22,7 @@ namespace VemProFutApi.Domain.Entities
 
         [Column("partidas_ganhas_peladeiro")]
         public int PartidasGanhas = 0;
+
+        public Peladeiro? Peladeiro { get; set; } // Navegação 1:1
     }
 }

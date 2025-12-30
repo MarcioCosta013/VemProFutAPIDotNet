@@ -18,7 +18,7 @@ namespace VemProFutApi.Domain.Entities
             FutId = futId;
             Cartaos = cartaos;
             GolPartida = golPartida;
-            Peladeiro = peladeiro;
+            Peladeiros = peladeiro;
         }
 
         [Key]
@@ -39,12 +39,12 @@ namespace VemProFutApi.Domain.Entities
 
         public ICollection<GolPartida> GolPartida { get; set; }
 
-        public ICollection<Peladeiro> Peladeiro { get; set; }
+        public ICollection<Peladeiro> Peladeiros { get; set; }
 
         //Helpers
         public void AddPeladeiro(Peladeiro peladeiro)
         {
-            Peladeiro.Add(peladeiro);
+            Peladeiros.Add(peladeiro);
             peladeiro.AddPartida(this);
         }
     }

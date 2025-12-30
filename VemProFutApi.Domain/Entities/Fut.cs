@@ -13,7 +13,7 @@ namespace VemProFutApi.Domain.Entities
             Peladeiros = new List<Peladeiro>();
             Cartaos = new List<Cartao>();
             Banimentos = new List<Banimento>();
-
+            Partidas = new List<Partida>();
         }
 
         public Fut(
@@ -33,7 +33,7 @@ namespace VemProFutApi.Domain.Entities
             Foto_Url = foto_Url;
             HistoricoFutId = historicoFutId;
             HistoricoFut = historicoFut;
-            Admin = admin;
+            Administrador = admin;
         }
 
         [Key]
@@ -59,26 +59,25 @@ namespace VemProFutApi.Domain.Entities
         [Column("fk_historico_peladeiro")]
         public long? HistoricoFutId { get; set; }
 
-        [Column("fk_peladeiro")]
-        public long? AdmPeladeiro { get; set; }
-
         [ForeignKey("HistoricoFutId")]
         public HistoricoFut? HistoricoFut { get; set; }
 
+        [Column("fk_peladeiro")]
+        public long? AdmPeladeiro { get; set; }
+
         [ForeignKey("AdmPeladeiro")]
         public Peladeiro? Administrador { get; set; }
-
-        public Peladeiro? Admin { get; set; }
 
         public ICollection<Peladeiro> Peladeiros { get; set; }
         public ICollection<Editor> Editores { get; set; }
         public ICollection<Cartao> Cartaos { get; set; } 
         public ICollection<Banimento> Banimentos { get; set; }
+        public ICollection<Partida> Partidas { get; set; }
 
         public void AddPeladeiro(Peladeiro peladeiro)
         {
             Peladeiros.Add(peladeiro);
-            peladeiro.Futs.Add(this);
+            peladeiro.AddFut(this);
         }
 
         public void AddBanimento(Banimento banimento)

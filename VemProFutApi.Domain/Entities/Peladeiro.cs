@@ -46,7 +46,7 @@ namespace VemProFutApi.Domain.Entities
         public PeDominante PeDominante { get; set; }
 
         [Column("fk_historico_peladeiro")]
-        public long? HistoricoPeladeiroId { get; set; }
+        public long? HistoricoPeladeiroId { get; set; } // FK
 
         [ForeignKey("HistoricoPeladeiroId")]
         public HistoricoPeladeiro? HistoricoPeladeiro { get; set; }
@@ -60,10 +60,10 @@ namespace VemProFutApi.Domain.Entities
         public ICollection<Banimento> Banimentos { get; set; }
 
         [Column("auth_provider"), StringLength(50)]
-        public string? AuthProvider { get; set; }
+        public string AuthProvider { get; set; }
 
         [Column("foto_url"), StringLength(255)]
-        public string? FotoUrl { get; set; }
+        public string FotoUrl { get; set; }
 
         // Metódos Helpers para manter a consistencia nas relacoes
         public void AddPartida(Partida partida)
@@ -75,7 +75,7 @@ namespace VemProFutApi.Domain.Entities
         public void AddFut(Fut fut)
         {
             Futs.Add(fut);
-            fut.Peladeiros.Add(this);
+            fut.AddPeladeiro(this);
         }
 
         public void AddBanimento(Banimento banimento)

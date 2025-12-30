@@ -6,7 +6,6 @@ namespace VemProFutApi.Domain.Entities
     [Table("historico_fut")]
     public class HistoricoFut
     {
-
         [Key]
         [Column("id_historico_fut")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,5 +19,7 @@ namespace VemProFutApi.Domain.Entities
 
         [Column("time_mais_vitorias_historico")]
         public string TimeMaisVitorias = "vazio";
+
+        public Fut? Fut { get; set; } //Navegacao 1:1
     }
 }
